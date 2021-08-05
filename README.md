@@ -1,6 +1,6 @@
 # Lumenad utilities for dbt
 
-This package includes common functions (macros) used in Lumenad's dbt packages.
+This package includes common functions (macros) for (re)use in Lumenad's dbt packages.
 
 ## Macros
 ### unload_records

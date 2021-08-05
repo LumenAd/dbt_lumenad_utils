@@ -1,0 +1,15 @@
+name: 'lumenad_utils'
+version: '0.1.0'
+config-version: 2
+
+source-paths: ["models"]
+analysis-paths: ["analysis"]
+test-paths: ["tests"]
+data-paths: ["data"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+vars:
+  lumenad_utils:
+    dbt_utils_dispatch_list:
+      - lumenad_utils 
