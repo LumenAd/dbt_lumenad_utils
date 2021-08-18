@@ -1,5 +1,5 @@
 {% macro unload_records(model, stage_name, time_field, time_part, time_value) %}
-    {% set time_since = "dateadd(" ~ time_part ~ ", " ~ time_value ~ ", " ~ time_field ~ ")" %}
+    {% set time_since = "timestampadd(" ~ time_part ~ ", " ~ time_value ~ ", current_timestamp())" %}
     {% set fields = dbt_utils.star(from=model) %}
     {% set query = "SELECT " ~ fields ~ ", " ~ lumenad_utils.unload_partition_keys(time_field) ~ " FROM " ~ model ~ " WHERE " ~ time_field ~ " >= " ~ time_since %}
     {% set s3_path = "@" ~  model.database|lower ~ '.' ~ model.schema|lower ~ '.' ~ stage_name ~ "/" ~ model.database|lower ~ '/' ~ model.schema|lower ~ '/' ~ model.table|lower %}
